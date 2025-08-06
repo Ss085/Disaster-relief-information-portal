@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Styling for Main Content Area */
+main {
+  padding: 2rem;
+  background-color: #007BFF; /* Blue background for main content */
+  color: #fff; /* White text color for contrast */
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Disaster Section */
+.disaster-info {
+  display: none;
+  background-color: #0056b3;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+/* Website Description Styling */
+.description {
+  padding: 1.5rem;
+  background-color: #f3f3f3;
+  color: #333;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Helpline Desk Styling */
+.helpline {
+  padding: 1rem;
+  background-color: #ffcccb;
+  color: #333;
+  font-size: 1.2rem;
+  text-align: center;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+
+footer {
+  text-align: center;
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ReliefWeb Reports Styling */
+#relief-reports {
+  background-color: #f3f3f3;
+  padding: 1rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+#relief-reports div {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+/* Weather Section Styling */
+#weather-info {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #333;
+  border: 1px solid #ddd;
+}
