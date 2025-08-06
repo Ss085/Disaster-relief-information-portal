@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Preparedness and Relief Portal</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Content Area with Home Section at the Top -->
+    <main>
+        <section id="home" class="active">
+            <h1>Welcome to the Disaster Preparedness and Relief Portal</h1>
+            <p>Your one-stop resource for disaster preparedness, emergency contacts, and relief efforts.</p>
+        </section>
+        
+        <!-- Weather Information Section -->
+        <section id="weather-info" style="display: none;">
+            <h2>Weather Updates for Hyderabad</h2>
+            <div id="weather-info-content">
+                <!-- Weather details will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('disasters')">Recent Disasters</a></li>
+                <li><a onclick="showSection('relief')">Relief and Donations</a></li>
+                <li><a onclick="showSection('weather-info')">Weather Updates</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Website Description -->
+    <div class="description">
+        The Disaster Preparedness and Relief Information Portal is a comprehensive online resource designed to help individuals and communities prepare for, respond to, and recover from natural disasters. It provides essential information on different types of disasters, step-by-step preparedness plans, emergency contact details, and nearby shelter locations. The portal also includes downloadable guides, first-aid checklists, and links for disaster relief donations. Accessible and user-friendly, this platform aims to enhance public safety and community resilience during emergencies.
+    </div>
+
+    <!-- Other Sections -->
+    <main>
+        <!-- Recent Disasters Section with Clickable Links -->
+        <section id="disasters" style="display: none;">
+            <h2>Recent Disasters</h2>
+            <ul>
+                <li><a onclick="showDisasterInfo('sikkim')">2023 Flash Floods in Sikkim</a></li>
+                <li><a onclick="showDisasterInfo('himachal')">2023 Landslides in Himachal Pradesh</a></li>
+                <li><a onclick="showDisasterInfo('fengal')">2024 Cyclone Fengal</a></li>
+                <li><a onclick="showDisasterInfo('vijayawada')">2024 Vijayawada Floods</a></li>
+            </ul>
+
+            <!-- Disaster-Specific Information Sections -->
+            <div id="sikkim" class="disaster-info">
+                <h3>2023 Flash Floods in Sikkim Preparedness</h3>
+                <ul>
+                    <li><strong>Preparedness Plan:</strong> 
+                        <ul>
+                            <li>Effected Area: Teesta Dam, Chungthang</li>
+                            <li>Relocate to higher ground.</li>
+                            <li>Avoid crossing flooded areas.</li>
+                            <li>Emergency kit:
+                                <ul>
+                                    <li>Water (at least 3 days' supply)</li>
+                                    <li>Non-perishable food items</li>
+                                    <li>First-aid kit</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Emergency Contacts:</strong>
+                        <ul>
+                            <li>Sikkim Police: 03592-203478</li>
+                            <li>Emergency Response Support Team: 112</li>
+                            <li>Nearest Shelter: Mountain Rd, Sikkim</li>                        
+                        </ul>
+                    </li>
+                    <li><strong>Resources:</strong>
+                        <ul>
+                            <li>First-aid checklists:
+                                <ul>
+                                    <li>Bandages</li>
+                                    <li>Antiseptic wipes</li>
+                                    <li>Adhesive tape</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="himachal" class="disaster-info">
+                <h3>2023 Landslides in Himachal Pradesh Preparedness</h3>
+                <ul>
+                    <li><strong>Preparedness Plan:</strong> 
+                        <ul>
+                            <li>Effected Areas: Himalayan Expressway, sections of Kalka-Shimla Railway.</li>
+                            <li>Evacuate when alerts are issued.</li>
+                            <li>Avoid hilly or loose soil areas.</li>
+                            <li>Emergency kit:
+                                <ul>
+                                    <li>Water</li>
+                                    <li>Food (dry items)</li>
+                                    <li>Torches and batteries</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Emergency Contacts:</strong>
+                        <ul>
+                            <li>Himachal Pradesh Police: 0177-2621711</li>
+                            <li>Disaster Helpline: 0177-2929688</li>
+                            <li>Nearest Shelter: 456 Hilltop Ave, Himachal Pradesh</li>
+                        </ul>
+                    </li>
+                    <li><strong>Resources:</strong>
+                        <ul>
+                            <li>First-aid checklists:
+                                <ul>
+                                    <li>Sanitation supplies</li>
+                                    <li>Bandages</li>
+                                    <li>Paracetamol or Dolo-650 tablets</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="fengal" class="disaster-info">
+                <h3>2024 Cyclone Fengal Preparedness</h3>
+                <ul>
+                    <li><strong>Preparedness Plan:</strong>
+                        <ul>
+                            <li>Effected Areas: Coastal Bengal, Sundarbans.</li>
+                            <li>Relocate to cyclone shelters or higher ground.</li>
+                            <li>Secure loose objects in your surroundings.</li>
+                            <li>Emergency kit:
+                                <ul>
+                                    <li>Drinking water</li>
+                                    <li>Ready-to-eat food</li>
+                                    <li>First-aid kit</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Emergency Contacts:</strong>
+                        <ul>
+                            <li>Bengal Disaster Management Authority: 033-22143526</li>
+                            <li>Emergency Response Team: 112</li>
+                            <li>Nearest Shelter: Cyclone Shelter, Sundarbans Area.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Resources:</strong>
+                        <ul>
+                            <li>First-aid checklists:
+                                <ul>
+                                    <li>Antiseptic cream</li>
+                                    <li>Sterile gauze pads</li>
+                                    <li>Ibuprofen tablets</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="vijayawada" class="disaster-info">
+                <h3>2024 Vijayawada Floods Preparedness</h3>
+                <ul>
+                    <li><strong>Preparedness Plan:</strong>
+                        <ul>
+                            <li>Effected Areas: Prakasam Barrage, Krishna River Basin.</li>
+                            <li>Move to higher ground or flood shelters.</li>
+                            <li>Avoid waterlogged roads and bridges.</li>
+                            <li>Emergency kit:
+                                <ul>
+                                    <li>Portable chargers</li>
+                                    <li>Non-perishable food items</li>
+                                    <li>Life jackets (if possible)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Emergency Contacts:</strong>
+                        <ul>
+                            <li>Andhra Pradesh Police: 0866-2451074</li>
+                            <li>Emergency Response Team: 112</li>
+                            <li>Nearest Shelter: Flood Shelter, Bhavanipuram, Vijayawada.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Resources:</strong>
+                        <ul>
+                            <li>First-aid checklists:
+                                <ul>
+                                    <li>Thermal blankets</li>
+                                    <li>Disinfectant wipes</li>
+                                    <li>Adhesive bandages</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="relief" style="display: none;">
+            <h2>Relief and Donations</h2>
+            <p>Support disaster relief efforts by donating or volunteering.</p>
+            <ul>
+                <li><a href="https://pmnrf.gov.in/" target="_blank">Donate to PMNRF</a></li>
+                <li><a href="https://www.unicef.org/india/" target="_blank">Donate to UNICEF India</a></li>
+                <li><a href="https://www.indianredcross.org/donate" target="_blank">Donate to Indian Red Cross Society</a></li>
+                <li><a href="https://goonj.org/donate/" target="_blank">Donate to Goonj</a></li>
+            </ul>
+        </section>
+
+        <!-- ReliefWeb Reports Section -->
+        <section id="relief-reports">
+            <h2>Latest Disaster Reports</h2>
+            <div id="reports">
+                <!-- Reports will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Helpline Desk Section -->
+    <div class="helpline">
+        <h2>National Helpline Desk</h2>
+        <p>In case of emergencies, call 1078 or 011-26701700 for immediate assistance.</p>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Disaster Preparedness and Relief Portal</p>
+    </footer>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>   
