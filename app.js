@@ -1,3 +1,13 @@
+// Function to filter ongoing disasters
+function filterOngoingDisasters(disasters) {
+    const ongoingDisasters = disasters.filter(disaster => {
+        const disasterDate = new Date(disaster.fields.date);
+        const today = new Date();
+        return disasterDate <= today;  // Only show disasters that have occurred till today (ongoing or past)
+    });
+    return ongoingDisasters;
+}
+
 // Show the main sections based on the nav link click
 function showSection(sectionId) {
     // Hide all sections
@@ -36,6 +46,46 @@ function showDisasterInfo(disasterId) {
     }
 }
 
+// Fetch the latest disaster reports from ReliefWeb API
+async function fetchDisasterReports() {
+    const url = 'https://api.reliefweb.int/v1/reports?filter[category][0]=Disasters&limit=5';
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const ongoingDisasters = filterOngoingDisasters(data.data); // Filter ongoing disasters
+        displayReports(ongoingDisasters);  // Display only ongoing disasters
+    } catch (error) {
+        console.error("Error fetching disaster reports:", error);
+        document.getElementById('reports').innerHTML = `
+            <p style="color: red;">Failed to load disaster reports.</p>
+        `;
+    }
+}
+
+// Display the disaster reports
+function displayReports(disasters) {
+    const reportsSection = document.getElementById('reports');
+
+    if (!disasters || disasters.length === 0) {
+        reportsSection.innerHTML = '<p>No ongoing disaster reports available at the moment.</p>';
+        return;
+    }
+
+    reportsSection.innerHTML = disasters.map(disaster => {
+        const title = disaster.fields?.title || 'No Title';
+        const url = disaster.fields?.url || '#';
+        const date = disaster.fields?.date || 'No Date Available';
+
+        return `
+            <div>
+                <h4><a href="${url}" target="_blank">${title}</a></h4>
+                <p><strong>Published:</strong> ${date}</p>
+            </div>
+        `;
+    }).join('');
+}
+
 // Fetch weather data from Open-Meteo API
 async function fetchWeatherData() {
     const url = 'https://api.open-meteo.com/v1/forecast?latitude=17.385044&longitude=78.486671&current_weather=true'; // Hyderabad
@@ -63,45 +113,6 @@ function displayWeather(data) {
             <p>Wind Speed: ${weather.windspeed} km/h</p>
         `;
     }
-}
-
-// Fetch the latest disaster reports from ReliefWeb API
-async function fetchDisasterReports() {
-    const url = 'https://api.reliefweb.int/v1/reports?filter[category][0]=Disasters&limit=5';
-
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        displayReports(data);
-    } catch (error) {
-        console.error("Error fetching disaster reports:", error);
-        document.getElementById('reports').innerHTML = `
-            <p style="color: red;">Failed to load disaster reports.</p>
-        `;
-    }
-}
-
-// Display the disaster reports
-function displayReports(data) {
-    const reportsSection = document.getElementById('reports');
-
-    if (!data.data || data.data.length === 0) {
-        reportsSection.innerHTML = '<p>No disaster reports available at the moment.</p>';
-        return;
-    }
-
-    reportsSection.innerHTML = data.data.map(report => {
-        const title = report.fields?.title || 'No Title';
-        const url = report.fields?.url || '#';
-        const date = report.fields?.date || 'No Date Available';
-
-        return `
-            <div>
-                <h4><a href="${url}" target="_blank">${title}</a></h4>
-                <p><strong>Published:</strong> ${date}</p>
-            </div>
-        `;
-    }).join('');
 }
 
 // Initialize on page load
